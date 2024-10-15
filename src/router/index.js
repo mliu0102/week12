@@ -14,68 +14,70 @@ import GetAllBookAPI from '../views/GetAllBookAPI.vue'
 
 
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: AboutView
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: LoginView
-  },
-  {
-    path: '/FireLogin',
-    name: 'FireLogin',
-    component: FirebaseSigninView
-  },
-  {
-    path: '/FireRegister',
-    name: 'FireRegister',
-    component: FirebaseRegisterView
-  },
-  {
-    path: '/UserProfile',
-    name: 'UserProfile',
-    component: UserProfileView
-  },
-  {
-    path: '/addbook',
-    name: 'AddBook',
-    component: AddBookView
-  },
-  {
-    path: '/Getbookcount',
-    name: 'GetBookCount',
-    component: GetBookCountView
-  },
-  {
-    path: '/WeatherCheck',
-    name: 'WeatherCheck',
-    component: WeatherView
-  },
-  {
-    path: '/CountBookAPI',
-    name: 'CountBookAPI',
-    component: CountBookAPI
-  },
-  {
-    path: '/GetAllBookAPI',
-    name: 'GetAllBookAPI',
-    component: GetAllBookAPI
-  }
 
-]
-// history: createWebHistory(process.env.BASE_URL),
+
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    [
+      {
+        path: '/',
+        name: 'Home',
+        component: HomeView
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: AboutView
+      },
+      {
+        path: '/login',
+        name: 'Login',
+        component: LoginView
+      },
+      {
+        path: '/FireLogin',
+        name: 'FireLogin',
+        component: FirebaseSigninView
+      },
+      {
+        path: '/FireRegister',
+        name: 'FireRegister',
+        component: FirebaseRegisterView
+      },
+      {
+        path: '/UserProfile',
+        name: 'UserProfile',
+        component: UserProfileView
+      },
+      {
+        path: '/addbook',
+        name: 'AddBook',
+        component: AddBookView
+      },
+      {
+        path: '/Getbookcount',
+        name: 'GetBookCount',
+        component: GetBookCountView
+      },
+      {
+        path: '/WeatherCheck',
+        name: 'WeatherCheck',
+        component: WeatherView
+      },
+      {
+        path: '/CountBookAPI',
+        name: 'CountBookAPI',
+        component: CountBookAPI
+      },
+      {
+        path: '/GetAllBookAPI',
+        name: 'GetAllBookAPI',
+        component: GetAllBookAPI
+      }
+    
+    ]
+  ]
 })
 
 router.beforeEach((to, from, next) => {
