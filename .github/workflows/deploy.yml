@@ -22,7 +22,7 @@ jobs:
       run: npm ci
 
     - name: Build
-      run: npm run build
+      run: npm run build -- --base=/week12/
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.4
