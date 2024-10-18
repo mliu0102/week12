@@ -1,4 +1,4 @@
-name: Deploy Vue.js App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -6,28 +6,29 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
 
-      - name: Install dependencies
-        run: npm ci
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Build project
-        run: npm run build
+    - name: Build
+      run: npm run build
 
-      - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.email "your-email@example.com"
-          git config --global user.name "Your Name"
-          npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages
+        folder: dist
+
+permissions:
+  contents: write
